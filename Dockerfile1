@@ -1,0 +1,17 @@
+# Service1 - Python application
+FROM python:3.9-slim
+
+# Set work directory
+WORKDIR /app
+
+# Copy the Python application
+COPY service1.py .
+
+# Install dependencies if needed (no dependencies assumed)
+RUN pip install flask requests
+
+# Expose the port on which the service will run
+EXPOSE 8199
+
+# Run the application
+CMD ["python", "service1.py"]

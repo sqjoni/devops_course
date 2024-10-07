@@ -1,0 +1,14 @@
+# Service2 - Node.js application
+FROM node:14
+
+# Set work directory
+WORKDIR /app
+
+# Copy the Node.js application
+COPY service2.js .
+
+# Install dependencies if any (assuming no external dependencies)
+RUN npm install express
+
+# Expose the port (not needed externally, so no EXPOSE command)
+CMD ["node", "service2.js"]
