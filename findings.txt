@@ -1,0 +1,6 @@
+Findings:
+Containers share resources wit the host machine such as networking and mounted volumes. Containers have
+an IP address that reflects the internal Docker network. Processes running inside a container are
+isolated from the host machine, however, those can still be seen from the host. The networking is
+done by setting up virtual bridges that isolate containers from each other and public network. Even
+though containers share resources with the host, the container itself has no idea of a host being present.

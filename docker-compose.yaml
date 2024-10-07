@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile1
+    container_name: service1-container
+    image: sqjoni/service1
     ports:
       - "8199:8199"
     depends_on:
@@ -16,6 +18,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile2
+    container_name: service2-container
+    image: sqjoni/service2
     networks:
       - mynetwork
 

@@ -1,0 +1,4 @@
+OpenAI's chatGPT 4o LLM was used as an assistant in this exercise. It was used to ask syntax related
+questions and code generation for the Dockerfiles and express.js. This was due to the prior good
+experiences with the model and to improve efficiency. The help was sufficient to make this exercise
+a lot quicker to complete. There really were not mistakes when it came to the LLM.

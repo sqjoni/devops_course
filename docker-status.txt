@@ -1,0 +1,11 @@
+$ docker container ls
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+8a96f36a81e8   sqjoni/service1   "python service1.py"     16 seconds ago   Up 15 seconds   0.0.0.0:8199->8199/tcp, :::8199->8199/tcp   service1-container
+e5f5a6f1f8ba   sqjoni/service2   "docker-entrypoint.s…"   16 seconds ago   Up 15 seconds                                               service2-container
+
+$ docker network ls
+NETWORK ID     NAME               DRIVER    SCOPE
+b76fbc06885f   bridge             bridge    local
+def3f4c153a6   host               host      local
+dc32095bb471   none               null      local
+cff8ed6cfd90   sqjoni_mynetwork   bridge    local
