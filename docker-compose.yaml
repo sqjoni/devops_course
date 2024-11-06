@@ -4,22 +4,32 @@ services:
   service1:
     build:
       context: .
-      dockerfile: Dockerfile1
-    container_name: service1-container
-    image: sqjoni/service1
-    ports:
-      - "8199:8199"
-    depends_on:
-      - service2
+      dockerfile: Dockerfile-service1
+    deploy:
+      replicas: 3
     networks:
       - mynetwork
 
   service2:
     build:
       context: .
-      dockerfile: Dockerfile2
+      dockerfile: Dockerfile-service2
     container_name: service2-container
     image: sqjoni/service2
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./htpasswd:/etc/nginx/.htpasswd
+      - ./html:/usr/share/nginx/html
+    ports:
+      - "8198:8198"
+    depends_on:
+      - service1
     networks:
       - mynetwork
 

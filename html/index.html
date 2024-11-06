@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Gateway</title>
+    <script>
+        // Function to send a request to Service1 through Nginx
+        async function sendRequest() {
+            try {
+                const response = await fetch('/request');
+                const data = await response.json();
+                document.getElementById('output').value = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('output').value = "Error: Could not fetch data.";
+            }
+        }
+
+        // Function to stop the services
+        async function stopServices() {
+            try {
+                const response = await fetch('/stop', { method: 'POST' });
+                document.getElementById('output').value = "Services are stopping...";
+            } catch (error) {
+                document.getElementById('output').value = "Error: Could not stop services.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Service Gateway</h1>
+    <button onclick="sendRequest()">REQUEST</button>
+    <button onclick="stopServices()">STOP</button>
+    <br><br>
+    <textarea id="output" rows="20" cols="80" style="width:100%;" placeholder="..."></textarea>
+</body>
+</html>

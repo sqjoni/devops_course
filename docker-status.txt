@@ -1,11 +1,14 @@
 $ docker container ls
-CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                       NAMES
-8a96f36a81e8   sqjoni/service1   "python service1.py"     16 seconds ago   Up 15 seconds   0.0.0.0:8199->8199/tcp, :::8199->8199/tcp   service1-container
-e5f5a6f1f8ba   sqjoni/service2   "docker-entrypoint.s…"   16 seconds ago   Up 15 seconds                                               service2-container
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                                               NAMES
+a00287454482   nginx:latest      "/docker-entrypoint.…"   5 minutes ago   Up 5 minutes   80/tcp, 0.0.0.0:8198->8198/tcp, :::8198->8198/tcp   nginx-container
+02f0aa4c6933   sqjoni-service1   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes                                                       sqjoni-service1-2
+25067c3ddd18   sqjoni/service2   "python service2.py"     5 minutes ago   Up 5 minutes                                                       service2-container
+3da536dcf61d   sqjoni-service1   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes                                                       sqjoni-service1-1
+99984472bf49   sqjoni-service1   "docker-entrypoint.s…"   5 minutes ago   Up 5 minutes                                                       sqjoni-service1-3
 
 $ docker network ls
 NETWORK ID     NAME               DRIVER    SCOPE
-b76fbc06885f   bridge             bridge    local
+ad9e818823cd   bridge             bridge    local
 def3f4c153a6   host               host      local
 dc32095bb471   none               null      local
-cff8ed6cfd90   sqjoni_mynetwork   bridge    local
+d37193de1c10   sqjoni_mynetwork   bridge    local
